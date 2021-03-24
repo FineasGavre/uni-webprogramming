@@ -1,0 +1,190 @@
+@font-face {
+    font-family: "Amazon Ember";
+    src: url('./assets/fonts/AmazonEmber_Rg.ttf');
+}
+
+@font-face {
+    font-family: "Amazon Ember";
+    src: url('./assets/fonts/AmazonEmber_Bd.ttf');
+    font-weight: bold;
+}
+
+body {
+    margin: 0;
+    font-family: "Amazon Ember", sans-serif;
+    background-color: #EAEDED;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto 1248px auto auto auto auto;
+}
+
+.header {
+    background-color: #131921;
+}
+
+.amazon-logo {
+    padding-top: 7px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+
+.deliver-zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-subtitle {
+    color: #ccc;
+    font-size: 12px;
+    line-height: 14px;
+    height: 14px;
+    font-weight: 400;
+}
+
+.header-title {
+    color: white;
+    font-weight: bold;
+}
+
+.header-title-nb {
+    color: white;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.search-bar {
+    margin-top: 7px;
+    margin-bottom: 7px;
+
+    border-radius: 4px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 52px 1151px 45px;
+}
+
+.center-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dropdown-selector {
+    background-color: lightgray;
+    color: gray;
+
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: #ccc solid 2px;
+}
+
+.search-button {
+    background-color: #febd69;
+    color: gray;
+
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: #ccc solid 2px;
+}
+
+.us-flag-icon {
+    width: 30px;
+    object-fit: scale-down;
+}
+
+.item-nav-menu {
+    background-color: #232f3e;
+    height: 39px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.item-nav-right-float {
+    margin-left: auto;
+}
+
+.item-nav-right-float span {
+    padding-right: 40px;
+    font-size: 14px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 1500px;
+    min-height: 500px;
+    height: 100%;
+    background-image: url('./assets/img/hero.jpg');
+    background-repeat: no-repeat;
+
+    padding-top: 250px;
+
+    display: grid;
+    grid-template-columns: 1px auto auto auto auto 1px;
+    grid-gap: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 21px;
+    font-weight: bold;
+    color: black;
+}
+
+.card-content {
+    margin-top: 5px;
+}
+
+.card-content img {
+    object-fit: scale-down;
+    height: 100%;
+    max-width: 310px;
+}
+
+.card-action {
+    color: #007185;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.sign-button {
+    background-color: #f0c14b;
+    height: 30px;
+    width: 280px;
+
+    border-radius: 5px;
+    border: brown solid 1px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.ad {
+    margin-top: 10px;
+    margin-left: 20px;
+}
