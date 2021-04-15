@@ -6,6 +6,7 @@ $(document).ready(() => {
     requestAllData()
 })
 
+
 function requestAllData() {
     $.ajax({
         type: 'POST',

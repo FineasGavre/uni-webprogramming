@@ -22,7 +22,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../footballmanager-client" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -36,6 +36,9 @@
       <updated>1616552078239</updated>
       <workItem from="1616552079310" duration="196000" />
       <workItem from="1616559264008" duration="5000" />
+      <workItem from="1616601885313" duration="1363000" />
+      <workItem from="1617662385475" duration="2000" />
+      <workItem from="1618494653544" duration="52000" />
     </task>
     <servers />
   </component>
