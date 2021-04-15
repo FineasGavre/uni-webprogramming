@@ -15,6 +15,9 @@ $(document).ready(() => {
                     <option value="${elem.id}">${elem.genre}</option>
                 `)
             })
+
+            pullFromLocalStorage()
+            handleGenreChange()
         }
     })
 
@@ -34,8 +37,17 @@ function requestAllData() {
     })
 }
 
+function pullFromLocalStorage() {
+    if (localStorage.getItem('filter_id') != null) {
+        genreInput.val(localStorage.getItem('filter_id'))
+    } else {
+        genreInput.val(0)
+    }
+}
+
 function handleGenreChange() {
     const val = genreInput.val()
+    localStorage.setItem('filter_id', val)
 
     if (Number(val) === 0) {
         replaceTableData(tableData)
