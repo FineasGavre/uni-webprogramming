@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http'
 import { Observable } from 'rxjs'
 
 export interface Genre {
-  id: number
+  id: string
   genre: string
 }
 
@@ -16,7 +16,7 @@ export interface AllGenresResponse {
 })
 export class GenresService {
 
-  private static baseApiUrl = 'http://localhost:8080/genres'
+  private static baseApiUrl = 'http://192.168.0.52:8080/genres'
 
   constructor(private http: HttpClient) { }
 
@@ -24,13 +24,22 @@ export class GenresService {
     return this.http.post<AllGenresResponse>(GenresService.baseApiUrl + '/index.php', null)
   }
 
-  deleteGenre(id: number): void {
+  createGenre(genre: Genre): Observable<any> {
     const body = new URLSearchParams()
-    body.set('id', String(id))
+    body.set('genre_name', genre.genre)
 
-    this.http.post(GenresService.baseApiUrl + '/delete.php', body.toString(), {
+    return this.http.post(GenresService.baseApiUrl + '/create.php', body.toString(), {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-    }).subscribe((result) => console.log(result))
+    })
+  }
+
+  deleteGenre(id: string): Observable<any> {
+    const body = new URLSearchParams()
+    body.set('id', id)
+
+    return this.http.post(GenresService.baseApiUrl + '/delete.php', body.toString(), {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+    })
   }
 
 }

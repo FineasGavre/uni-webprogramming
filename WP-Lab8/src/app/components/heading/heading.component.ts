@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core'
 
 @Component({
   selector: 'app-heading',
@@ -14,6 +14,9 @@ export class HeadingComponent implements OnInit {
 
   @Input()
   buttonText: string
+
+  @Output()
+  buttonClick = new EventEmitter()
 
   ngOnInit(): void {
   }

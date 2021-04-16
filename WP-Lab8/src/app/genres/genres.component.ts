@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Genre, GenresService } from './genres.service'
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-genres',
@@ -10,21 +11,24 @@ export class GenresComponent implements OnInit {
 
   genres: Genre[]
 
-  constructor(private genresService: GenresService) { }
+  constructor(private genresService: GenresService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.fetchGenres()
+  async ngOnInit(): Promise<void> {
+    await this.fetchGenres()
   }
 
-  fetchGenres(): void {
-    this.genresService.getAllGenres().subscribe((response) => {
-      this.genres = response.data
-    })
+  async fetchGenres(): Promise<void> {
+    const response = await this.genresService.getAllGenres().toPromise()
+    this.genres = response.data
   }
 
-  deleteGenre(id: number): void {
-    this.genresService.deleteGenre(id)
-    this.fetchGenres()
+  async deleteGenre(id: string): Promise<void> {
+    await this.genresService.deleteGenre(id).toPromise()
+    await this.fetchGenres()
+  }
+
+  sendToAddGenre(): void {
+    this.router.navigateByUrl('genres/create')
   }
 
 }
