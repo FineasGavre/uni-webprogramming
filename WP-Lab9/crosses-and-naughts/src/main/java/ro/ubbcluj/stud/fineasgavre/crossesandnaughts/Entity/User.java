@@ -1,5 +1,7 @@
 package ro.ubbcluj.stud.fineasgavre.crossesandnaughts.Entity;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,10 +24,10 @@ public class User {
     private boolean enabled;
 
     public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-        this.role = "USER";
-        this.enabled = true;
+        setUsername(username);
+        setPassword(password);
+        setRole("USER");
+        setEnabled(true);
     }
 
     protected User() {}
@@ -51,7 +53,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = (new BCryptPasswordEncoder()).encode(password);
     }
 
     public String getRole() {
