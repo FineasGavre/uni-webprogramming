@@ -20,6 +20,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping(value = "/loginPage")
+    public String displayLoginForm() {
+        return "users/login";
+    }
+
     @GetMapping(value = "/create")
     public String displayCreateUser() {
         return "users/create";

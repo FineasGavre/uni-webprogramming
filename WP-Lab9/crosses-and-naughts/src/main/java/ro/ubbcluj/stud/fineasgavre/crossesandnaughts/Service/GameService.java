@@ -16,7 +16,7 @@ public class GameService {
     private GameRepository gameRepository;
 
     public Iterable<Game> getAllGames() {
-        return gameRepository.findAll();
+        return gameRepository.findAllByOrderByGameStatusDesc();
     }
 
     public Game getGameById(Long id) {
@@ -39,7 +39,7 @@ public class GameService {
 
         var game = gameOpt.get();
 
-        if (!game.getOwnerUser().getId().equals(user.getId())) {
+        if (!game.getOwnerUser().getId().equals(user.getId()) && game.getJoinerUser() == null) {
             game.setJoinerUser(user);
             game.setGameStatus(Game.GameStatus.INGAME);
 

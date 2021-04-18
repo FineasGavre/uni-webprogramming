@@ -19,6 +19,10 @@ public class UserService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    public User getUserByUsername(String username) {
+        return userRepository.getUserByUsername(username);
+    }
+
     public boolean createUser(User user) {
         var validated = userValidator.validate(user);
 

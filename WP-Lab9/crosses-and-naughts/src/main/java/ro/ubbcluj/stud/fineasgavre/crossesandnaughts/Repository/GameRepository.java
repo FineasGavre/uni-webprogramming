@@ -5,4 +5,6 @@ import ro.ubbcluj.stud.fineasgavre.crossesandnaughts.Entity.Game;
 
 public interface GameRepository extends CrudRepository<Game, Long> {
 
+    Iterable<Game> findAllByOrderByGameStatusDesc();
+
 }
