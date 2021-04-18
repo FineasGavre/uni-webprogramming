@@ -1,0 +1,44 @@
+<app-heading title="Edit file" buttonText="Save" (buttonClick)="saveFile()"></app-heading>
+
+<div class="mx-auto sm:px-6 lg:px-8 mt-6">
+  <div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
+    <div class="flex flex-col">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 px-6 py-4">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+            <div class="sm:col-span-3">
+              <label for="title" class="block text-sm font-medium text-gray-700">
+                Title
+              </label>
+              <div class="mt-1 flex rounded-md shadow-sm">
+                <input [(ngModel)]="fileFormData.title" type="text" name="title" id="title" autocomplete="title" placeholder="e.g. Extinction" class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full min-w-0 rounded-md sm:text-sm border-gray-300">
+              </div>
+            </div>
+            <div class="sm:col-span-3">
+              <label for="genre" class="block text-sm font-medium text-gray-700">Genre</label>
+              <select id="genre" name="genre" [(ngModel)]="fileFormData.genre_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                <option *ngFor="let genre of genres" [ngValue]="genre.id">{{ genre.genre }}</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="format" class="block text-sm font-medium text-gray-700">
+                Format
+              </label>
+              <div class="mt-1 flex rounded-md shadow-sm">
+                <input [(ngModel)]="fileFormData.format" type="text" name="format" id="format" autocomplete="format" placeholder="e.g. MP4" class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full min-w-0 rounded-md sm:text-sm border-gray-300">
+              </div>
+            </div>
+            <div class="sm:col-span-4">
+              <label for="file_path" class="block text-sm font-medium text-gray-700">
+                File Path
+              </label>
+              <div class="mt-1 flex rounded-md shadow-sm">
+                <input [(ngModel)]="fileFormData.file_path" type="text" name="file_path" id="file_path" autocomplete="file_path" placeholder="e.g. C:/Videos/Extinction.mp4" class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full min-w-0 rounded-md sm:text-sm border-gray-300">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

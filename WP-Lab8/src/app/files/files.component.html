@@ -1,2 +1,66 @@
-<app-heading title="Files" buttonText="Add a new file"></app-heading>
+<app-heading title="Files" buttonText="Add a new file" (buttonClick)="sendToAddFile()"></app-heading>
+
+<div class="mx-auto sm:px-6 lg:px-8 mt-6">
+  <div>
+    <label for="filter" class="block text-sm font-medium text-gray-700">Filter by Genre</label>
+    <select id="filter" name="filter" [(ngModel)]="genreFilterId" (ngModelChange)="saveFilterGenreIdToLocalStorage(genreFilterId)" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+      <option value="0">Show all</option>
+      <option *ngFor="let genre of genres" [ngValue]="genre.id">{{ genre.genre }}</option>
+    </select>
+  </div>
+</div>
+
+<div class="mx-auto sm:px-6 lg:px-8 mt-6">
+  <div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
+    <div class="flex flex-col">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Title
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Genre
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Format
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  File Path
+                </th>
+                <th scope="col" class="relative px-6 py-3">
+                  <span class="sr-only">Edit</span>
+                </th>
+              </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+              <tr *ngFor="let multimediaFile of getFilteredFiles()" [id]="multimediaFile.id">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  {{ multimediaFile.title }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  {{ getGenreNameFromGenreId(multimediaFile.genre_id) }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  {{ multimediaFile.format }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  {{ multimediaFile.file_path }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <button (click)="sendToUpdateFile(multimediaFile.id)" class="mr-5 text-blue-600 hover:text-blue-900">Edit</button>
+                  <button (click)="deleteFile(multimediaFile.id)" class="text-red-600 hover:text-red-900">Delete</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 

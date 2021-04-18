@@ -8,6 +8,10 @@ import { FilesComponent } from './files/files.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeadingComponent } from './components/heading/heading.component';
+import {FormsModule} from '@angular/forms';
+import { AddGenreComponent } from './genres/add-genre/add-genre.component';
+import { AddFileComponent } from './files/add-file/add-file.component';
+import { EditFileComponent } from './files/edit-file/edit-file.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +19,17 @@ import { HeadingComponent } from './components/heading/heading.component';
     GenresComponent,
     FilesComponent,
     NavbarComponent,
-    HeadingComponent
+    HeadingComponent,
+    AddGenreComponent,
+    AddFileComponent,
+    EditFileComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
