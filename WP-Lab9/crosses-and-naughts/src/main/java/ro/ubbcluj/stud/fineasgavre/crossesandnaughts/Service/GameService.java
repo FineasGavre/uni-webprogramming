@@ -7,6 +7,7 @@ import ro.ubbcluj.stud.fineasgavre.crossesandnaughts.Entity.User;
 import ro.ubbcluj.stud.fineasgavre.crossesandnaughts.GameLogic.GameBoard;
 import ro.ubbcluj.stud.fineasgavre.crossesandnaughts.Repository.GameRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -31,6 +32,7 @@ public class GameService {
         return game;
     }
 
+    @Transactional
     public void joinGame(Long gameId, User user) {
         var gameOpt = gameRepository.findById(gameId);
         if (gameOpt.isEmpty()) {
@@ -47,6 +49,7 @@ public class GameService {
         }
     }
 
+    @Transactional
     public void makeMove(Long gameId, User user, int position) {
         var game = gameRepository.findById(gameId).get();
 

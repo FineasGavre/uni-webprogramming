@@ -23,7 +23,8 @@ public class GameController {
     private GameService gameService;
 
     @GetMapping(value = "/")
-    public String displayAllGames(Model model) {
+    public String displayAllGames(Model model, Principal principal) {
+        model.addAttribute("user", userService.getUserByUsername(principal.getName()));
         model.addAttribute("games", gameService.getAllGames());
 
         return "games/display";

@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-3 mt-3 gap-y-3 ">
+            <div class="grid grid-cols-3 mt-3 gap-y-3">
                 <c:forEach var="i" begin="0" end="${board.boardList.size() - 1}">
                     <c:choose>
                         <c:when test="${board.boardList.get(i).name().equals(\"CROSS\")}">

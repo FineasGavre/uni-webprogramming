@@ -1,3 +1,4 @@
+<%--@elvariable id="user" type="ro.ubbcluj.stud.fineasgavre.crossesandnaughts.Entity.User"--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -9,6 +10,27 @@
 <body>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto">
+            <div class="bg-white shadow sm:rounded-lg mt-3">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="sm:flex sm:items-start sm:justify-between">
+                        <div>
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                                Hello, <span class="font-bold">${user.username}</span>!
+                            </h3>
+                            <div class="mt-2 max-w-xl text-sm text-gray-500">
+                                <p>
+                                    Welcome to the game!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-5 sm:mt-0 sm:ml-6 sm:flex-shrink-0 sm:flex sm:items-center">
+                            <a href="${pageContext.request.contextPath}/logout" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm">
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <form action="${pageContext.request.contextPath}/games/create" method="post">
                 <div class="bg-white shadow sm:rounded-lg mt-3">
                     <div class="px-4 py-5 sm:p-6">
