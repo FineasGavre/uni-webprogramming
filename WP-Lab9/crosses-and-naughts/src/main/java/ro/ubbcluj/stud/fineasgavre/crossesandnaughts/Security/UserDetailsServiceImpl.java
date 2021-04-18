@@ -21,7 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("Could not find the user.");
         }
 
-        return new CNUserDetails(user);
+        return user;
     }
 
 }

@@ -3,6 +3,7 @@ package ro.ubbcluj.stud.fineasgavre.crossesandnaughts.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -46,17 +47,16 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/user/create")
-                .authorizeRequests()
-                .antMatchers("/user/create").permitAll()
-                .and()
-            .antMatcher("/*")
-                .authorizeRequests()
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/user/create").permitAll()
+                .antMatchers(HttpMethod.POST, "/user/create").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin().permitAll()
                 .and()
-            .logout().permitAll();
+            .logout().permitAll()
+                .and()
+            .csrf().disable();
     }
     
 }
